@@ -46,7 +46,7 @@
     }
 
     #nav-main {
-        @apply overflow-hidden w-full top-0 z-0 flex flex-row grow text-neutral-100 bg-slate-900 text-slate-50 p-4 shadow-md gap-x-4 items-center;
+        @apply overflow-hidden w-full h-16 top-0 z-0 flex flex-row grow text-neutral-100 bg-slate-900 text-slate-50 p-4 shadow-md gap-x-4 items-center;
 
         .nav-branding {
             @apply flex flex-row flex-nowrap overflow-hidden items-center space-x-4 font-semibold;

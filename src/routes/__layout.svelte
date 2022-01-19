@@ -5,7 +5,6 @@
 </script>
 
 <style lang="scss">
-
     @import "tailwindcss/base";
     @import "tailwindcss/components";
     @import "tailwindcss/utilities";
@@ -17,13 +16,20 @@
     .nav-button {
         @apply flex flex-initial shrink items-center p-3;
     }
-</style>
 
-<main>
+    .seperator {
+        @apply w-full h-2 bg-gradient-to-r from-slate-900 via-cyan-900 to-slate-800;
+    }
+</style>
+<main class="w-full h-full">
     <Nav branding_img="branding.png" branding_title="MetaVAC Explorer">
         <svelte:fragment slot="nav-before">
-            <a class="nav-button" href="/explorer"><span>Explorer</span></a>
-            <a class="nav-button" href="/charts"><span>Charts</span></a>
+            <a class="nav-button" href="/explorer">
+                <span>Explorer</span>
+            </a>
+            <a class="nav-button" href="/charts">
+                <span>Charts</span>
+            </a>
         </svelte:fragment>
 
         <svelte:fragment slot="nav-after">
@@ -34,6 +40,7 @@
             </a>
         </svelte:fragment>
     </Nav>
+    <div class="seperator"></div>
 
     <slot></slot>
 </main>
