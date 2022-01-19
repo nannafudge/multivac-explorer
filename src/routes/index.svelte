@@ -54,7 +54,7 @@
 		<span> | explorer</span>
 	</div>
 	<div class="w-full">
-		<Search  placeholder="Search blocks/txns/accounts..."></Search>
+		<Search large placeholder="Search blocks/txns/accounts..."></Search>
 	</div>
 </div>
 

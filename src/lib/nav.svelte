@@ -23,9 +23,13 @@
 	@import "tailwindcss/base";
 	@import "tailwindcss/components";
 	@import "tailwindcss/utilities";
+
+    .seperator {
+		@apply sticky w-full h-2 bg-gradient-to-r from-slate-900 via-cyan-900 to-slate-800;
+	}
     
     #nav-side {
-        @apply flex flex-col items-center absolute h-full w-72 p-6 text-neutral-100 bg-slate-900;
+        @apply flex flex-col items-center absolute h-full w-72 p-6 text-slate-50 bg-slate-900;
         @apply transform transition duration-200 ease-in-out;
 
         @media (min-width: theme('screens.sm')) {
@@ -46,18 +50,18 @@
     }
 
     #nav-main {
-        @apply overflow-hidden w-full h-16 top-0 z-0 flex flex-row grow text-neutral-100 bg-slate-900 text-slate-50 p-4 shadow-md gap-x-4 items-center;
+        @apply overflow-hidden w-full h-16 z-0 flex flex-row grow bg-slate-900 text-slate-50 p-4 items-center;
 
         .nav-branding {
-            @apply flex flex-row flex-nowrap overflow-hidden items-center space-x-4 font-semibold;
+            @apply flex flex-row flex-nowrap overflow-hidden items-center gap-x-4 mr-8 font-semibold;
         }
 
         .nav-before {
-            @apply flex-row shrink;
+            @apply flex flex-row gap-x-4 shrink;
         }
 
         .nav-after {
-            @apply flex-row-reverse grow overflow-hidden;
+            @apply flex flex-row-reverse gap-x-4 items-center grow overflow-hidden;
         }
     }
 </style>
@@ -95,29 +99,33 @@
     </div>
 </div>
 
-<nav id="nav-main">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer flex sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" on:click|stopPropagation={toggleNav}>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
+<div class="sticky top-0 shadow-lg">
+    <nav id="nav-main">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer flex sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" on:click|stopPropagation={toggleNav}>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
 
-    <a class='nav-branding' href='/'>
-        {#if branding_img !== ""}
-            <img class="h-8 w-8" src="{branding_img}" alt="{branding_title}" />
-        {/if}
+        <a class='nav-branding' href='/'>
+            {#if branding_img !== ""}
+                <img class="h-8 w-8" src="{branding_img}" alt="{branding_title}" />
+            {/if}
 
-        {#if branding_title !== ""}
-            <span>{branding_title}</span>
-        {/if}
-    </a>
+            {#if branding_title !== ""}
+                <span>{branding_title}</span>
+            {/if}
+        </a>
 
-    <div class="nav-before hidden sm:flex">
-        <slot name="nav-before">
-        </slot>
-    </div>
-    
-    <div class="nav-after hidden sm:flex">
-        <slot name="nav-after">
+        <div class="nav-before hidden sm:flex">
+            <slot name="nav-before">
+            </slot>
+        </div>
+        
+        <div class="nav-after hidden sm:flex">
+            <slot name="nav-after">
 
-        </slot>
-    </div>
-</nav>
+            </slot>
+        </div>
+    </nav>
+
+    <div class="seperator"></div>
+</div>
